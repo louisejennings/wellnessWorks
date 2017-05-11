@@ -1,4 +1,4 @@
-# WellnessWorks - Final Year Project
+# Wellness Works - Final Year Project
 
 ## Project Title: 
 A wellness platform promoting social interaction, encouraging achievement and monitoring progression.  
