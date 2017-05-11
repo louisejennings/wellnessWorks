@@ -1,0 +1,26 @@
+{{#if user}}
+<nav class="navigationMain">
+  <div class="navContainer">
+    <a id="logoMain" href="">
+        <img class ="logo" alt="logo" src="/images/wwLogo.png">
+    </a>
+      {{#equal title "User List"}}
+       <h2>Admin</h2> <!---need to send admin name--->
+      {{else}}
+      <h2>Hello {{toUpperCase user.username}}</h2>  
+    {{/equal}}
+    <a id="logout" href="/users/logout">Logout</a>	
+  </div>
+</nav>
+{{else}}  <!-- if user is not logged in show the Login and Register -->
+<nav class="navigationLogin">
+  <ul class="nav nav-pills pull-right">
+ 	  <li role="presentation">
+      <a href="/users/login">Login</a>
+    </li>
+    <li role="presentation">
+      <a href="/users/register">Register</a>
+    </li>
+  </ul>
+</nav>
+{{/if}}

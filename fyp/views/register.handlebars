@@ -1,0 +1,67 @@
+{{> headerTitle}}
+{{> navigation}}
+
+{{#if errors}}
+	{{#each errors}}
+		<div class="alert alert-danger">
+			{{msg}}
+		</div>
+	{{/each}}
+{{/if}}
+<div class="registerationForm">
+	<form method="post" action="/users/register">
+		<div class="form-group">
+			<label>Name</label>
+			<input type="text" class="form-control" placeholder="Name" name="name">
+		</div>
+		<div class="form-group">
+			<label>Username</label>
+			<input type="text" class="form-control" placeholder="Username" name="username">
+		</div>
+		<div class="form-group">
+			<label>Email</label>
+			<input type="email" class="form-control" placeholder="Email" name="email">
+		</div>
+		<div class="form-group">
+			<label>Location</label>
+			<input type="text" class="form-control" placeholder="Location" name="location">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" class="form-control" placeholder="Password" name="password">
+		</div>
+		<div class="form-group">
+			<label>Confirm Password</label>
+			<input type="password" class="form-control" placeholder="Password" name="password2">
+		</div>
+		<div class="form-group">
+			<label>Add Profile Picture</label>
+			<input type="url" class="form-control" placeholder="Photo" name="photo">
+		</div>
+		<div class="form-group">
+			<label>Gender</label>
+			<br>
+			<input type="radio"  name="gender" value="Male"> Male
+			<input type="radio"  name="gender" value="Female"> Female		
+		</div>
+		<div class="form-group">
+			<label>Department</label>
+			<br>
+			<input type="radio" name="dept" value="Accounts"> Accounts
+			<input type="radio" name="dept" value="CustService"> Customer Service	
+			<input type="radio" name="dept" value="Engineering"> Engineering
+			<input type="radio" name="dept" value="HR"> HR
+			<input type="radio" name="dept" value="IT"> I.T.
+			<input type="radio" name="dept" value="Marketing"> Marketing	
+			<input type="radio" name="dept" value="Sales"> Sales
+			<input type="radio" name="dept" value="Other"> Other
+		</div>
+		<div class="form-group">
+			<label>Job Title</label>
+			<input type="text" class="form-control" placeholder="Job Title" name="jobtitle">
+		</div>
+
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form> 
+</div>
+

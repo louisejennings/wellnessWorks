@@ -1,0 +1,31 @@
+{{> navigation}}
+{{#if errors}}
+	{{#each errors}}
+		<div class="alert alert-danger">
+			{{msg}}
+		</div>
+	{{/each}}
+{{/if}}
+<div class="dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            {{> sideNav}}	
+
+            <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+				<h2 class="topHeader">{{firstNameCap user.name}}'s {{{capitalize this.id}}}</h2>
+				<img class="curImage" src="/images/{{this.id}}.png">
+				<br><br>
+				<form method="post" action="/events/currentEvent">
+					<div class="form-group">
+						<label>Capacity</label>
+						<input type="number" name="capacity" min="1" max="5">
+					</div>
+					<input type="hidden" name="creatorName" value ="{{firstNameCap user.name}}">
+					<input type="hidden" name="eventCategory" value ="{{this.id}}">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</div>
+    </div>
+</div>
+{{> footer}}

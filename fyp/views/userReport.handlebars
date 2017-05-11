@@ -1,0 +1,79 @@
+{{> navigation}}
+
+    <div class="dashboard">
+        <div class="container-fluid">
+            <div class="row">
+            {{> sideNav}}
+               <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+                    <h2 class="topHeader">{{capitalize user.name}}'s Badges</h2>
+                    <div class="row eventDisplays">
+                        <div class="col-xs-12 col-sm-12 col-md-12 eventDisplay">
+                            <div class="eventContent">
+
+                           <form class="specialBadges" method="post" action="/users/specialBadges">
+                            <h3>Award Special Badge</h3>  
+                            <div class="form-group">
+                                <label>Badges </label> 
+                                <input type="hidden" name="userID" value="{{user.id}}">
+                                <input type="radio" name="specialBadges" value="Excellence"> Excellence
+                                <input type="radio" name="specialBadges" value="Teamplayer"> Team Player
+                                <input type="radio" name="specialBadges" value="GreatJob"> Great Job
+                                <br>
+                                <label>Comment </label>
+                                <input type="text" name="comment" placeholder="Add Comment">
+                                <br><br>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                           </form>
+
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Event Name</th>
+                                            <th>Badges</th>
+                                            <th>Category</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each user.badges}}
+                                        <tr>
+                                            <td class="text-left">{{this.eventName}}</td>
+                                            <td class="text-left">
+                                                <img id="badge" class="img-responsive thumbnail"src="/{{this.badges}}"> 
+                                                <!--added / to direct to correct path -->
+                                            </td>
+                                            <td class="text-left">{{capitalize this.category}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    <tbody>
+                                </table>
+
+                                 <table class="table">
+                                    <thead> <h2 class="topHeader">Special Badges</h2>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Special Badge</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       {{#each user.specialBadges}}
+                                            <td class="text-left">{{this}}</td>
+                                            <td class="text-left"><img id="specialbadge" class="img-responsive thumbnail"
+                                                src="/./images/badges/{{checkImage this}}.png"> 
+                                            </td> 
+                                       {{/each}}
+                                    <tbody>
+                                </table>
+
+                                <a href="/users/userList">
+                                <button class="btn btn-default">Back</button>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{> footer}}

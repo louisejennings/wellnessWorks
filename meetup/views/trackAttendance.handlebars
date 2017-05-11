@@ -1,0 +1,35 @@
+
+<div class="container col-md-12">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>Tracking Attendance</h1>
+
+
+			<div class="container content">
+				<div class="col-md-4 redContent">
+					<h3 class="eventNameRed">{{event.eventName}}</h3>
+				</div>
+				<div class="col-md-8">
+
+					<h3>Instructions for NFC Card</h3>
+					<ol class="instructions">
+						<li class="text-left">Download the NFC Tools application. It can be found here:
+							<a class="nfc" target="blank" href="https://play.google.com/store/apps/details?id=com.wakdev.wdnfc&hl=en">
+								 NFC Tools Link.</a>
+						</li>
+						<br>
+			           	<li class="text-left">Write the following URL to the NFC card: <br>
+			           		<p class="red">https://meetup-plus.herokuapp.com/events/attendance/{{event.id}}</p>
+			           	</li> 
+			           	<li class="text-left">Ensure user is logged into Meetup+ application before swiping the NFC card.</li>
+		           	</ol> 
+		            <a href="/">
+		            	<button class="btn btn-default right">Back</button>
+		        	</a>
+		        </div>
+	        </div>
+		</div>
+
+	</div>
+</div>
+

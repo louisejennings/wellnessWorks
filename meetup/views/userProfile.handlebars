@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row user-menu-container square">
+        <div class="col-md-12 user-details">
+            <div class="row coralbg white">
+                <div class="col-md-6 no-pad">
+                    <div class="user-pad">
+                        <h3>Hi {{user.name}}</h3>
+                        <h4 class="white"><i class="fa fa-envelope"></i> {{user.email}}</h4>
+                        <a href="/users/edit/{{user.id}}">
+                            <button id="update">Update Profile</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 no-pad">
+                    <div class="user-image">
+                    {{#if user.photo.length}}
+                       <img class="img-responsive thumbnail profile"src="{{user.photo}}">
+                    {{else}}
+                        <img class="img-responsive thumbnail profile"src="http://www.freeiconspng.com/uploads/profile-icon-9.png">
+                    {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

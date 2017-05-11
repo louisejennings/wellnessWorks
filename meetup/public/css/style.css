@@ -1,0 +1,86 @@
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.navbar {
+	margin-bottom: 20px;
+	background-color: #ed1c40;
+	border-color: #ed1c40;
+}
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+	color:white;
+}
+
+.upcomingEvents{
+	margin-top: 30px;
+}
+.upcoming{
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+.text{
+	border: 1px solid #ccc;
+	height: 150px;
+	padding: 5px;
+}
+p.name{
+	text-align: center;
+	font-weight: bold;
+	height: 50px;
+}
+p.date,.RSVP{
+	text-align: center;
+}
+button.btn.btn-default.upcoming{
+	width: 100%;
+	border-radius: 0px;
+	border-top:0;
+	background-color: #ed1c40;
+	color:white;
+}
+.groupName{
+	margin-top: 35px;
+}
+.groupName p{
+	font-size: 20px;
+	padding-bottom: 5px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+.content{
+	margin-top: 30px;
+	border: 1px solid #ccc;
+	padding: 5px;
+	width: 100%;
+}
+
+.redContent{
+	background-color: #ed1c40;
+	color:white;
+	padding-bottom: 20px;
+	max-height: 220px;
+}
+
+button.btn.btn-default.right{
+	color:red;
+	float: right;
+}
+ 
+.red{ 
+	color:#ed1c40;
+}
+
+a.nfc{
+	color:gray;
+	font-weight: bold;
+}
+
+h2.tableHeader{
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+/*---------TESTING-------------*/

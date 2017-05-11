@@ -1,0 +1,52 @@
+<div class="container col-md-12">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="text-center">UPCOMING MEETINGS</h2>
+					<div class="upcomingEvents">
+						
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<h2 class="text-center">TRACKED MEETINGS</h2>
+					{{#if user.trackedEvents.length}}
+						
+							<table class="table table-striped">
+					        	<thead>
+						            <tr>
+						                <th class="col-md-8">Event Name</th>
+						                <th class="col-md-4">More Details</th>
+						            </tr>
+					        	</thead>
+					        	<tbody>
+					        		{{#each user.trackedEvents}}
+						            <tr>
+						                <td class="text-left">{{this.eventName}}</td>
+						                <td class="text-left">
+						                    <a href="/events/attendanceReport/{{this.id}}">
+						                        <button class="btn btn-default">More Info</button>
+						                    </a>
+						                    
+						                </td>
+						            </tr>
+						            {{/each}}
+					        	<tbody>
+					    	</table>
+			
+				    {{else}}
+				    <p> No tracked events.</p>
+				    {{/if}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<h2 class="text-center">GROUPS</h2>
+			<div class="groupName">
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+{{> navigation}}
+<div class="dashboard">
+  <div class="container-fluid">
+      <div class="row">
+          {{> sideNav}}
+            <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+                    <h2 class="topHeader">My Events</h2>
+                    <div class="row eventDisplays">
+                        <div class="eventDisplay">
+                            <div class="eventContent">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Event Name</th>
+                                            <th>Date</th>
+                                            <th>Location</th>
+                                            <th>Start Time</th>
+                                            <th>End Time</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each user.myevents}}
+                                        <tr>
+                                            <td class="text-left">{{this.eventName}}</td>
+                                            <td class="text-left"><i class="fa fa-calendar"></i> {{this.date}}</td>
+                                            <td class="text-left"><i class="fa fa-map-marker"></i> {{this.location}}</td>
+                                            <td class="text-left"> {{this.startTime}}</td>
+                                            <td class="text-left"> {{this.endTime}}</td>
+                                            <td class="text-left">
+                                              <a href="/users/myevents/delete/{{this._id}}">
+                                                <button class="btn btn-default">Delete</button>
+                                              </a>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    <tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+{{> footer}}

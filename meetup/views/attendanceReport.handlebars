@@ -1,0 +1,68 @@
+
+<div class="container col-md-12">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>Attendance Report</h1>
+			<div class="container content">
+				<div class="col-md-4 redContent">
+					<h3 class="eventNameRed">{{event.eventName}}</h3>
+					<br>
+					<p class="text-left">NFC Code: {{event.id}} </p>
+					<p class="text-left">Event ID: {{event.eventID}}</p>
+					<p class="text-left">Tracker ID: {{event.trackerID}}</p>
+				</div>
+				<div class="col-md-4">
+					<table class="table table-striped">
+						<h2 class="tableHeader">RSVP</h2>
+			            <thead>
+			                <tr>
+			                    <th class="col-md-6">Name</th>
+			                    <th class="col-md-6">Member ID</th>
+			                </tr>
+			            </thead>
+			            <tbody>  
+			                <tr>
+			                    <td class="memberName text-left"></td>
+			                    <td class="memberID text-left"></td>
+			                </tr>
+			            </tbody>
+			        </table>
+			    </div>
+			    <div class="col-md-4">
+			        <table class="table table-striped">
+			        	<h2 class="tableHeader">ATTENDED</h2>
+			            <thead>
+			                <tr>
+			                    <th class="col-md-6">Name</th>
+			                    <th class="col-md-6">Member ID</th>
+			                </tr>
+			            </thead>
+			            <tbody>  
+			            	{{#if event.attendList.length}}
+				                {{#each event.attendList}}
+				                <tr>
+				                    <td class="text-left">{{this.name}}</td>
+				                    <td class="text-left">{{this.meetupUserID}}</td>
+				                </tr>
+				                {{/each}}
+				            {{else}}
+				            	<tr>
+				                    <td class="text-left">No user attended.</td>
+				                    <td class="text-left">No user attended.</td>
+				                </tr>
+				            {{/if}}
+			            </tbody>
+			        </table>
+				</div>
+	        </div>
+			<div class="deleteOption">
+				<p> Delete this tracked event.
+					<a href="/users/deleteTracking/{{event.id}}"onclick="return confirm('Are you sure you want to delete?');">
+						<button type="button" class="btn btn-default">X</button>
+					</a> 
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+

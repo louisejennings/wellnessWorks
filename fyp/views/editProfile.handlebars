@@ -1,0 +1,80 @@
+{{> navigation}}
+{{#if errors}}
+	{{#each errors}}
+		<div class="alert alert-danger">
+			{{msg}}
+		</div>
+	{{/each}}
+{{/if}}
+<div class="dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            {{> sideNav}}
+            <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+				<h2 class="topHeader">Edit Profile</h2>
+
+				<form method="post" action="/users/edit/{{user.id}}">
+					<div class="form-group">
+						<label>Name</label>
+						<input type="text" class="form-control" placeholder="Name" name="name" value="{{user.name}}">
+					</div>
+					<div class="form-group">
+						<label>Username</label>
+						<input type="text" class="form-control" placeholder="Username" name="username" value="{{user.username}}">
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" placeholder="Email" name="email" value="{{user.email}}">
+					</div>
+					<div class="form-group">
+						<label>Gender</label>
+						<br>
+						<input type="radio" name="gender" value="Male" 
+						{{#equal user.gender "Male"}} checked="checked"{{/equal}}> Male
+						<input type="radio" name="gender" value="Female" 
+						{{#equal user.gender "Female"}} checked="checked"{{/equal}}> Female
+					</div>
+					<div class="form-group">
+						<label>Add Profile Picture</label>
+						<input type="url" class="form-control" placeholder="Photo" name="photo" value="{{user.photo}}">
+					</div>
+					<div class="form-group">
+						<label>Location</label>
+						<input type="text" class="form-control" placeholder="Location" name="location" value="{{user.location}}">
+					</div>
+					<div class="form-group">
+						<label>Job Title</label>
+						<input type="text" class="form-control" placeholder="Job title" name="jobtitle" value="{{user.jobtitle}}">
+					</div>
+					<div class="form-group">
+						<label>Department</label>
+						<br>
+						<input type="radio" name="dept" value="Accounts" 
+						{{#equal user.dept "Accounts"}} checked="checked"{{/equal}}> Accounts
+						<input type="radio" name="dept" value="CustService" 
+						{{#equal user.dept "CustService"}} checked="checked"{{/equal}}> Customer Service
+						<input type="radio" name="dept" value="Engineering" 
+						{{#equal user.dept "Engineering"}} checked="checked"{{/equal}}> Engineering	
+						<input type="radio" name="dept" value="HR" 
+						{{#equal user.dept "HR"}} checked="checked"{{/equal}}> HR
+						<input type="radio" name="dept" value="IT" 
+						{{#equal user.dept "IT"}} checked="checked"{{/equal}}> I.T.
+						<input type="radio" name="dept" value="Marketing" 
+						{{#equal user.dept "Marketing"}} checked="checked"{{/equal}}> Marketing
+						<input type="radio" name="dept" value="Sales" 
+						{{#equal user.dept "Sales"}} checked="checked"{{/equal}}> Sales
+						<input type="radio" name="dept" value="Other" 
+						{{#equal user.dept "Other"}} checked="checked"{{/equal}}> Other
+					</div>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+
+                    <a href="/users/userProfile">
+                        <button type="button" class="btn btn-primary">Back</button>
+                    </a>
+				</form> 
+			</div>
+		</div>
+    </div>
+</div>
+{{> footer}}

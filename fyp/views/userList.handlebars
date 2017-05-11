@@ -1,0 +1,49 @@
+{{> navigation}}
+<div class="dashboard">
+  <div class="container-fluid">
+      <div class="row">
+          {{> sideNav}}
+            <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+                <h2 class="topHeader">User List</h2>
+                <div class="row eventDisplays">
+                  
+                  <div class="col-xs-6 col-sm-6 col-md-4 eventDisplay">
+                      <div class="eventContent">
+                        <a href="/users/adminAddUser">
+                            <button type="button" class="green btn btn-default">Add New User</button>
+                        </a>
+                      </div>
+                  </div>
+                    {{#each users}}
+                        <div class="col-xs-6 col-sm-6 col-md-4 eventDisplay">
+                            <div class="eventContent">
+                                <p class="category">{{capitalize this.name}}</p>
+                                <a href="/users/reports/{{this.id}}">
+                                    <button type="button" class="event btn btn-default">View Reports</button>
+                                </a>
+                                <br>
+                                {{#if this.photo.length}}
+                                  <img class="img-responsive thumbnail profile"src="{{this.photo}}">
+                                {{else}}
+                                  <img class="img-responsive thumbnail profile"src="http://www.freeiconspng.com/uploads/profile-icon-9.png">
+                                {{/if}}
+                                <p>{{this.email}}</p>
+                                <p>{{this.username}}</p>
+                                <p>{{this.roles}}</p>
+                                <a href="/users/edit/admin/{{this.id}}">
+                                    <button type="button" class="event btn btn-default">Update Profile</button>
+                           <!--- <button id="update">Update Profile</button> OLD CODE--->
+                                </a>
+                                <a href="/users/delete/{{this.id}}" onclick="return confirm('Are you sure you want to delete this user?');">
+                                    <button type="button" class="event btn btn-default">Delete Profile</button>
+                                </a>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer}}

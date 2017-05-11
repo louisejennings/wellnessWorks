@@ -1,0 +1,85 @@
+{{> navigation}}
+
+    <div class="dashboard">
+        <div class="container-fluid">
+            <div class="row">
+            {{> sideNav}}
+               <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+                    <h2 class="topHeader">Analytics</h2>
+                    <div class="row eventDisplays">
+                        <div class="col-xs-12 col-sm-12 col-md-12 eventDisplay">
+                            <div class="eventContent">
+                               <div id="engagementReport" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                 <h2 class="topHeader">Reports</h2>
+                    <div class="row eventDisplays">
+                        <div class="col-xs-12 col-sm-12 col-md-12 eventDisplay">
+                            <div class="eventContent">
+                                <table class="table table-striped">
+                                    <thead><h2>Events</h2>
+                                        <tr>
+                                            <th>Event Name</th>
+                                            <th>RSVP</th>
+                                            <th>Attended</th>
+                                            <th>More Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each events}}
+                                         {{#equal this.eventType "normalEvent"}}
+                                        <tr>
+                                            <td class="text-left">{{this.eventName}}</td>
+                                            <td class="text-left">{{this.rsvps.length}}</td>
+                                            <td class="text-left">{{this.attendList.length}}</td>
+                                            <td class="text-left">
+                                                <a href="/events/rsvpList/{{this.id}}">
+                                                    <button class="btn btn-default">More Info</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {{/equal}}
+                                        {{/each}}
+                                    <tbody>
+                                </table>
+                                <br>
+                               <table class="table table-striped">
+                                    <thead><h2>Current</h2>
+                                        <tr>
+                                            <th>User Created Events</th>
+                                            <th>Event Category</th>
+                                            <th>Capacity</th>
+                                            <th>Attended</th>
+                                            <th>More Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         {{#each events}}
+                                            {{#equal this.eventType "currentEvent"}}
+                                        <tr>
+                                            <td class="text-left">{{capitalize this.creatorName}}'s {{this.eventCategory}}</td>
+                                            
+                                            <td class="text-left"><img class="img analytics"src="../images/{{this.eventCategory}}.png"></td>
+                                            <td class="text-left">{{this.capacity}}</td>
+                                            <td class="text-left">{{this.attendList.length}}</td>
+                                            <td class="text-left">
+                                                <a href="/events/rsvpList/{{this.id}}">
+                                                    <button class="btn btn-default">More Info</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {{/equal}}
+                                        {{/each}}
+                                    <tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{> footer}}

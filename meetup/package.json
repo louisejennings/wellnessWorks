@@ -1,0 +1,37 @@
+{
+  "name": "meetup",
+  "version": "1.0.0",
+  "description": "meetup tracker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "meetup",
+    "tracker"
+  ],
+  "author": "louise jennings",
+  "license": "ISC",
+  "dependencies": {
+  "body-parser": "*",
+  "express": "*",
+  "express-handlebars": "*",
+  "express-session": "*",
+  "express-validator": "*",
+  "handlebars": "*",
+  "chalk": "*",
+  "request": "*",
+  "bcryptjs": "*",
+  "connect-flash": "*",
+  "cookie-parser": "*",
+  "express-messages": "*",
+  "mongodb": "*",
+  "mongoose": "*",
+  "passport": "*",
+  "passport-http": "*",
+  "passport-local": "*"
+  }
+}
+
+  
+  

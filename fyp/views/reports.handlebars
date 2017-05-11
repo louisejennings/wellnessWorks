@@ -1,0 +1,32 @@
+{{> navigation}}
+<div class="dashboard">
+  <div class="container-fluid">
+      <div class="row">
+          {{> sideNav}}
+           <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+                <div class="row user-menu-container square">
+                    <div class="col-md-12">
+                        <div class="row"> 
+                            <div class="col-md-12">
+                                <h2 class="topHeader">Register Attendance</h2>  
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="registerationForm">
+                                    <p>Username: {{capitalize user.name}} <p>
+                                    <p>Event Name:{{event.eventName}} </p>
+                                    <a href="/events/attendList/{{event.id}}">
+                                        <button type="submit" class="btn btn-default">OK</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer}}

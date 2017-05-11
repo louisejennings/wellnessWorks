@@ -1,0 +1,29 @@
+{{#if user}}
+ <div class="col-sm-2 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li {{#equal title "Welcome"}} class="active"{{/equal}}><a href="/">Events</a></li>
+    <li {{#equal title "User Profile"}} class="active"{{/equal}}><a href="/users/userProfile">User Profile</a></li>
+
+    {{#equal user.roles "admin"}} <!--- only show to admin --->
+        <li {{#equal title "Create Event"}} class="active"{{/equal}}><a href="/events/createEvent">Create Event</a></li>
+        <li {{#equal title "Analytics"}} class="active"{{/equal}}><a href="/events/analytics">Analytics</a></li>
+        <li {{#equal title "User List"}} class="active"{{/equal}}><a href="/users/userList">User List</a></li>
+        <li {{#equal title "Add User"}} class="active"{{/equal}}><a href="/users/adminAddUser">Add User</a></li>
+    {{/equal}}
+
+    {{#equal user.roles "user"}}  <!--- only show to user --->
+        {{#equal title "User List"}}   <!-- show admin options if Edit/Admin/id page--->
+            <li {{#equal title "Create Event"}} class="active"{{/equal}}><a href="/events/createEvent">Create Event</a></li>
+            <li {{#equal title "Analytics"}} class="active"{{/equal}}><a href="/events/analytics">Analytics</a></li>
+            <li {{#equal title "User List"}} class="active"{{/equal}}><a href="/users/userList">User List</a></li>
+            <li {{#equal title "Add User"}} class="active"{{/equal}}><a href="/users/adminAddUser">Add User</a></li>
+        {{else}}
+            <li {{#equal title "My Events"}} class="active"{{/equal}}><a href="/users/myevents/eventList">My Events</a></li>
+            <li {{#equal title "Badges"}} class="active"{{/equal}}><a href="/users/mybadges">Badges</a></li>
+        {{/equal}}
+    {{/equal}}
+
+  </ul>
+</div>
+{{/if}}
+

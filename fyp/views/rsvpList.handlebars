@@ -1,0 +1,59 @@
+{{> navigation}}
+
+    <div class="dashboard">
+        <div class="container-fluid">
+            <div class="row">
+            {{> sideNav}}
+               <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+                    <h2 class="topHeader">Attendance Report</h2>
+                    <div class="row eventDisplays">
+                        <div class="col-xs-12 col-sm-12 col-md-12 eventDisplay">
+                            <div class="eventContent">
+                                {{#equal event.rsvps.length ''}}
+                                {{else}}
+                                <table class="table table-striped">
+                                    <thead><h2>RSVP</h2>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                        {{#each event.rsvps}}
+                                        <tr>
+                                            <td class="text-left">{{this.name}}</td>
+                                            <td class="text-left">{{this.email}}</td>
+                                        </tr>
+                                         {{/each}}
+                                    </tbody>
+                                </table>
+                                {{/equal}}
+                                <table class="table table-striped">
+                                    <thead><h2>Attended</h2>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                        {{#each event.attendList}}
+                                        <tr>
+                                            <td class="text-left">{{this.name}}</td>
+                                            <td class="text-left">{{this.email}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <a href="/">
+                                <button class="btn btn-default">Back</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{> footer}}

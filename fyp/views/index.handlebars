@@ -1,0 +1,160 @@
+
+{{#if user}}
+  {{> navigation}}
+  <div class="dashboard">
+    <div class="container-fluid">
+      <div class="row">
+        {{> sideNav}}
+        {{#equal user.roles "user"}} 
+        <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+          <h2 class="topHeader">Create Event</h2>
+          <div class="row">
+            <div class="col-sm-12 col-md-12 eventDisplay">
+              <div class="event">
+                <div class="col-sm-4 col-md-4 currentEventContent">
+                  <img class="curImage" src="/images/coffee.png">
+                  <h4>Coffee</h4>
+                  <br>
+                  <a href="/events/createCurEvent/coffee">
+                    <button class="event btn btn-default">Create</button>
+                  </a>
+                  <br>
+                </div>
+                <div class="col-sm-4 col-md-4 currentEventContent">
+                    <img class="curImage" src="/images/lunch.png">
+                    <h4>Lunch</h4>
+                    <br>
+                    <a href="/events/createCurEvent/lunch">
+                      <button class="event btn btn-default">Create</button>
+                    </a>
+                    <br>
+                </div>
+                <div class="col-sm-4 col-md-4 currentEventContent">
+                    <img class="curImage" src="/images/meeting.png">
+                    <h4>Meeting</h4>
+                    <br>
+                    <a href="/events/createCurEvent/meeting">
+                      <button class="event btn btn-default">Create</button>
+                    </a>
+                    <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  <!---dashboardContent closed--->
+        {{/equal}}
+
+        <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+          <h2 class="topHeader">Current Listings</h2>
+          <div class="row eventDisplays">
+            {{#each events}}
+              {{#equal this.eventType "currentEvent"}}
+              <div class="col-xs-6 col-sm-6 col-md-4 eventDisplay">
+                <div class="eventContent">
+                  <a href= "/events/rsvpList/{{this.id}}">
+                    <p class="category">{{this.creatorName}}'s {{this.eventCategory}}</p>
+                  </a>
+                    <img class="img img-responsive"src="./images/{{this.eventCategory}}.png">
+                    <br><br>
+                    {{#equal this.capacity attendList.length}}
+                    <!--- Don't show Attend Button if Event is full--->
+                    {{else}}
+                    <a href="/users/currentEvents/{{this.id}}">
+                      <button class="event btn btn-default">Attend</button>
+                    </a>
+                    {{/equal}}
+                    <br>
+                </div>
+              </div>
+              {{/equal}}
+            {{/each}}
+          </div>
+        </div>
+
+
+        {{#equal user.roles "user"}}  <!--- show user dashboard--->
+        <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+            <h2 class="topHeader">All Events</h2>
+            <div class="row eventDisplays">
+              {{#each events}}
+                {{#equal this.eventType "normalEvent"}}
+                <div class="col-xs-6 col-sm-6 col-md-4 eventDisplay">
+                  <div class="eventContent">
+                    <a href= "/events/rsvpList/{{this.id}}">
+                      <p class="category">{{ this.category}}</p>
+                    </a>
+                    <img class="img img-responsive"src="{{this.image}}">
+                    <h4>{{this.eventName}}</h4>
+                    <br>
+                    <div class="innerText">
+                      <p class="text-muted"><i class="fa fa-calendar"></i> Date: {{this.date}}</p>
+                      <p class="text-muted"><i class="fa fa-clock-o"></i> {{this.startTime}}-{{this.endTime}}</p>
+                      <p class="text-muted"><i class="fa fa-map-marker"></i> Location: {{this.location}}</p>
+                      <p class="text-muted"><i class="fa fa-info-circle"></i> Information: {{this.info}}</p>
+                      <p class="text-muted"><i class="fa fa-certificate"></i> Badge: 
+                        <img id="badge" class="img-responsive thumbnail" src="./images/badges/{{this.category}}.png">
+                      </p>
+                    </div>
+                    <a href="/users/myevents/{{this.id}}">
+                      <button class="event btn btn-default">RSVP</button>
+                    </a>
+                    <br>
+                    
+                  </div>
+                </div>
+                {{/equal}}
+              {{/each}}
+            </div>
+        </div>
+        {{/equal}}
+
+        {{#equal user.roles "admin"}} <!--- show admin dashboard--->
+        <div id="dashboardContent" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+          <h2 class="topHeader">All Events</h2>
+          <div class="row eventDisplays">
+            <div class="col-xs-6 col-sm-4 eventDisplay">
+              <div class="eventContent">
+                <a href="/events/createEvent">
+                  <button type="button" class="green btn btn-default">Create Event</button>
+                </a>
+              </div>
+            </div>
+            {{#each events}}
+              {{#equal this.eventType "normalEvent"}}
+              <div class="col-xs-6 col-sm-6 col-md-4 eventDisplay">
+                <div class="eventContent">
+                  <a href= "/events/rsvpList/{{this.id}}">
+                    <p class="category">{{this.category}}</p>
+                  <img class="img img-responsive"src="{{this.image}}">
+                  <h4>{{this.eventName}}</h4>
+                  <br>
+                  <div class="innerText">
+                    <p class="text-muted"><i class="fa fa-calendar"></i> Date: {{this.date}}</p>
+                    <p class="text-muted"><i class="fa fa-clock-o"></i> {{this.startTime}}-{{this.endTime}}</p>
+                    <p class="text-muted"><i class="fa fa-map-marker"></i> Location: {{this.location}}</p>
+                    <p class="text-muted"><i class="fa fa-info-circle"></i> Information: {{this.info}}</p>
+                    <p class="text-muted"><i class="fa fa-certificate"></i> Badge: 
+                      <img id="badge" class="img-responsive thumbnail" src="./images/badges/{{this.category}}.png">
+                    </p>
+                  </div>
+                  <a href="/events/edit/{{this.id}}">
+                    <button type="button" class="event btn btn-default">Update Event</button>
+                  </a>
+                  <a href="/events/delete/{{this.id}}" onclick="return confirm('Are you sure you want to delete this event?');">
+                    <button type="button" class="event btn btn-default">Delete Event</button>
+                  </a>
+                  <a href="/events/nfcInstructions/{{this.id}}">
+                    <button type="button" id="nfcButton" class="event btn btn-default">NFC Instructions</button>
+                  </a>
+                </div>
+              </div>
+              {{/equal}}
+            {{/each}}
+          </div>
+        </div>
+        {{/equal}}
+      </div><!--closing row--->
+    </div> <!--closing container-fluid-->
+  </div>
+  {{> footer}}
+{{/if}}
