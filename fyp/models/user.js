@@ -123,19 +123,10 @@ module.exports.addSpecialBadge= function(userID, specialBadges, comment, callbac
 }
 
 
-
-/*******TESTING*************/
-
-
 //Current Event
 module.exports.addCurrentEvent= function(userID, newCurrentEvent, callback){
 	User.findByIdAndUpdate(userID,{$addToSet: {"currentEvents": newCurrentEvent}}, callback);
 	//adds to events array in user collection in db if does not exist
 }
 
-
-//Delete from RSVP and Attending
-/*module.exports.deleteRecords= function(id, callback){
-	User.findByIdAndUpdate(id,{$pull: {"myevents": id, "badges": id}}, callback);
-}*/
 
