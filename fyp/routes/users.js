@@ -249,24 +249,6 @@ router.get('/delete/:id', ensureAuthenticated,function(req, res) {
    		})
 });
 
-/************ TESTING**********************/
-
-//Delete User
-/*router.get('/delete/:id', ensureAuthenticated,function(req, res) {
-	var id = req.params.id;
-    var userToDelete = req.params.id.toString();
-    User.getEventById(id, badges, function (err, id){
-    	console.log(id);
-    })
-    //User.deleteRecords(id, function (err, user){
-    	//User.remove({"_id":userToDelete}, function(err, result) { 
-        	res.redirect('/users/userList'); 
-   		//})
-    //})
-});*/
-
-
-
 //Display Events
 router.get('/myevents/eventList/',ensureAuthenticated,function(req, res) {
 	var userID = req.user.id;
