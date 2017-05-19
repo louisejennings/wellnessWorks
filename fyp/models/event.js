@@ -96,9 +96,3 @@ module.exports.createCurrentEvent = function(newCurrentEvent, callback){
 module.exports.addUserAttendList = function(eventID, userID, callback){
 	Event.findByIdAndUpdate(eventID,{$addToSet: {"attendList": userID}}, callback); //add the creator ID to attendlist 
 }
-
-
-//Delete from RSVP and Attending
-/*module.exports.deleteRecords= function(id, callback){
-	Event.findByIdAndUpdate(id,{$pull: {"myevents": id, "rsvps": id}}, callback);
-}*/
