@@ -115,20 +115,6 @@ app.use('/', routes); //brings you to index file
 app.use('/users', users);
 app.use('/events', events); 
 
-
-
-
-/*-------------------------NFC----------------------------*/
-
-
-
-
-
-
-/*-------------------------NFC-END----------------------------*/
-
-
-//WORKING//
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
