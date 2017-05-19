@@ -33,16 +33,6 @@ Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
     }
 });
 
-/*Handlebars.registerHelper('eachByIdx', function(category,options){
-    var output = '';
-    var contextSorted = context.concat()
-        .sort( function(a,b) { return a.idx - b.idx } );
-    for(var i=0, j=contextSorted.length; i<j; i++) {
-        output += options.fn(contextSorted[i]);
-    }
-    return output;
-});*/
-
 /* ----- Capitalize first letter of Current Event ------------*/
 Handlebars.registerHelper('capital', function(eventName) {
     return eventName.charAt(0).toUpperCase() + eventName.slice(1);
@@ -66,38 +56,6 @@ Handlebars.registerHelper('checkImage', function(specialBadges) {
 
     var firstWord = arr[0].toLowerCase(); //change string to lowercase to match images src
     return firstWord
-});
-
-
-
-
-
-
-/*------------Badges-----------------*/
-
-Handlebars.registerHelper('checkBadges', function() {
-
-    //console.log(badges);
-/*for (var category in badges) {
-  if (badges.hasOwnProperty(category)) {
-    console.log(badges[category]['category']);
-  }
-}*/
-
-    //console.log(category)
-  /*  var tempBadges = [];
-   var category = category in badges;
-    for (var i = 0; i < badges.length; i++) {
-        if (category[i] in tempBadges){
-            tempBadges[category[i]]=tempBadges[category[i]]+1;
-        }else{
-            tempBadges[category[i]]=1;
-        }
-    }
-    console.log(tempBadges);
-
-   
-   return tempBadges[0]; */
 });
 
 
